@@ -9,9 +9,11 @@
 	},
 	"dependencies": {
 		"@heroicons/react": "^1.0.5",
+		"date-fns": "^2.27.0",
 		"next": "latest",
 		"next-auth": "^4.0.5",
 		"react": "^17.0.2",
+		"react-date-range": "^1.4.0",
 		"react-dom": "^17.0.2"
 	},
 	"devDependencies": {
