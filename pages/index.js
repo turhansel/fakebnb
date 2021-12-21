@@ -1,13 +1,10 @@
 import Head from 'next/head'
-import Banner from '../components/Banner'
-import Header from '../components/Header'
 import { getSession, useSession } from 'next-auth/react'
 import Login from '../components/Login'
-import Main from '../components/Main'
-import GiftCard from '../components/GiftCard'
 import Layout from '../components/Layout'
 
-export const Home = ({}) => {
+export const Home = ({ inspirationData }) => {
+	console.log('inspirationData', inspirationData)
 	const { data: session } = useSession()
 	if (!session) return <Login />
 	if (session) {
@@ -21,6 +18,20 @@ export const Home = ({}) => {
 				<Layout />
 			</div>
 		)
+	}
+}
+
+export async function getServerSideProps(context) {
+	const inspirationData = await fetch(`${process.env.NEXTAUTH_URL}/api/inspiration`).then((res) => res.json())
+	// const cardsData = await fetch(`${process.env.NEXTAUTH_URL}/api/cards`).then(
+	// 	(res) => res.json()
+	// )
+
+	return {
+		props: {
+			inspirationData,
+			// cardsData,
+		},
 	}
 }
 
