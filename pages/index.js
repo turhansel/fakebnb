@@ -5,6 +5,7 @@ import { getSession, useSession } from 'next-auth/react'
 import Login from '../components/Login'
 import Main from '../components/Main'
 import GiftCard from '../components/GiftCard'
+import Layout from '../components/Layout'
 
 export const Home = ({}) => {
 	const { data: session } = useSession()
@@ -17,14 +18,7 @@ export const Home = ({}) => {
 					<link rel='icon' href='/favicon.ico' />
 				</Head>
 
-				<Header page='/' />
-				<div className='bg-gradient-to-r from-indigo-300 via-pink-300 to-purple-300'>
-					<Banner />
-					<GiftCard />
-				</div>
-
-				{/* <Main /> */}
-				{/* Footer */}
+				<Layout />
 			</div>
 		)
 	}
