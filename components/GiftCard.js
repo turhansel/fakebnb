@@ -5,7 +5,7 @@ const GiftCard = () => {
 	return (
 		<div className='flex items-center justify-center '>
 			<div
-				className='w-[800px] h-[400px]  md:w-[1600px] md:h-[800px] bg-white rounded-xl  grid grid-cols-2 gap-4 place-content-center relative px-4 py-10shadow-lg sm:rounded-3xl sm:p-20 bg-clip-padding bg-opacity-60 border border-gray-200 backdrop-filter-blur  '
+				className='w-[800px] h-[400px]  md:w-[1600px] md:h-[800px] bg-white rounded-xl  grid grid-cols-2 gap-4 place-content-center relative px-4 py-10shadow-lg sm:rounded-3xl sm:p-20 bg-clip-padding bg-opacity-60 border border-gray-200 backdrop-filter-blur hover:shadow-[0_25px_40px_-15px_#ffd338]'
 				// style={{ backdropFilter: 'blur(20px)' }}
 			>
 				<div className='flex items-center flex-col justify-center space-y-7 '>
