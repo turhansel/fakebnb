@@ -4,8 +4,8 @@ import Login from '../components/Login'
 import Layout from '../components/Layout'
 
 export const Home = ({ inspirationData }) => {
-	console.log('inspirationData', inspirationData)
 	const { data: session } = useSession()
+
 	if (!session) return <Login />
 	if (session) {
 		return (
@@ -13,16 +13,18 @@ export const Home = ({ inspirationData }) => {
 				<Head>
 					<title>Airbnb-ish</title>
 					<link rel='icon' href='/favicon.ico' />
-				</Head>
+				</Head>  
 
-				<Layout />
+				<Layout inspirationData={inspirationData} />
 			</div>
 		)
 	}
 }
 
 export async function getServerSideProps(context) {
-	const inspirationData = await fetch(`${process.env.NEXTAUTH_URL}/api/inspiration`).then((res) => res.json())
+	const inspirationData = await fetch(
+		`${process.env.NEXTAUTH_URL}/api/inspiration`
+	).then((res) => res.json())
 	// const cardsData = await fetch(`${process.env.NEXTAUTH_URL}/api/cards`).then(
 	// 	(res) => res.json()
 	// )

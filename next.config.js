@@ -7,6 +7,7 @@ module.exports = {
 			'lh3.googleusercontent.com',
 			'avatars.githubusercontent.com',
 			'pbs.twimg.com',
+			'a0.muscache.com',
 		],
 	},
 };
