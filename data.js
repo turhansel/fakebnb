@@ -25,4 +25,19 @@ const inspiration = [
 	},
 ];
 
-export { inspiration };
+const discover = [
+	{
+		_id: '510af03312400b12515b4dde2ff',
+		img: 'https://res.cloudinary.com/diuzwbnzu/image/upload/v1641072534/GB_SE-307351_25_1640_R_uqswxg.webp',
+		description: 'Things to doon your trip',
+		buttonText: 'Experiences',
+	},
+	{
+		_id: '810af04900b12515b4dde302',
+		img: 'https://res.cloudinary.com/diuzwbnzu/image/upload/v1641072534/GB_SE-307351_25_1640_R_uqswxg.webp',
+		description: 'Things to dofrom home',
+		buttonText: 'Online Experiences',
+	},
+];
+
+export { inspiration, discover };
