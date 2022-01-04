@@ -1,15 +1,16 @@
-import React from 'react'
-import { Fade } from 'react-reveal'
-import Banner from './Banner'
-import GiftCard from './GiftCard'
-import Header from './Header'
-import InspirationCard from './InspirationCard'
+import React from 'react';
+import { Fade } from 'react-reveal';
+import Banner from './Banner';
+import GiftCard from './GiftCard';
+import Header from './Header';
+import InspirationCard from './InspirationCard';
+import DiscoverExperiences from './DiscoverExperiences';
 
-const Layout = ({ inspirationData }) => {
+const Layout = ({ inspirationData, discoverData }) => {
 	return (
 		<>
 			<Header page='/' />
-			<div className='bg-gradient-to-b from-indigo-200 via-purple-200 to-white'>
+			<div className='bg-gradient-to-b from-indigo-200 via-purple-100 to-white'>
 				<Banner />
 				<div className='container mx-auto px-8 sm:px-16 '>
 					<GiftCard />
@@ -39,10 +40,12 @@ const Layout = ({ inspirationData }) => {
 						</div>
 					</section>
 				</Fade>
+				<DiscoverExperiences discoverData={discoverData} />
 			</main>
+
 			{/* Footer */}
 		</>
-	)
-}
+	);
+};
 
-export default Layout
+export default Layout;
