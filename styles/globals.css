@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer components {
+	.primary-button {
+		@apply bg-white text-black  py-2 px-4 shadow-md rounded-lg  font-medium active:scale-90 transition duration-150 cursor-pointer;
+	}
+}

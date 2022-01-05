@@ -11,7 +11,7 @@ const GiftCard = () => {
 				<div className='flex items-center flex-col justify-center space-y-7 '>
 					<span className='text-2xl'>Introducing</span>
 					<h2 className='text-5xl font-semibold'>Airbnb gift cards</h2>
-					<button className='bg-black text-white py-2 px-4 shadow-md rounded-lg  font-medium active:scale-90 transition duration-150 '>
+					<button className='bg-black text-white primary-button'>
 						Shop Now
 					</button>
 				</div>
@@ -40,7 +40,7 @@ const GiftCard = () => {
 				</div>
 			</div>
 		</div>
-	)
+	);
 }
 
 export default GiftCard
