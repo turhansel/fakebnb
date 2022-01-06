@@ -11,7 +11,7 @@ export const Home = ({ inspirationData, discoverData }) => {
 		return (
 			<div>
 				<Head>
-					<title>Airbnb-ish</title>
+					<title>Airbnb-ish: Holiday Rentals, Cabins, Beach Houses, Unique ...</title>
 					<link rel='icon' href='/favicon.ico' />
 				</Head>
 

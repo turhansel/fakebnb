@@ -5,17 +5,18 @@ import GiftCard from './GiftCard';
 import Header from './Header';
 import InspirationCard from './InspirationCard';
 import DiscoverExperiences from './DiscoverExperiences';
+import Footer from './Footer';
 
 const Layout = ({ inspirationData, discoverData }) => {
 	return (
 		<>
 			<Header page='/' />
-			<div className='bg-gradient-to-b from-indigo-200 via-purple-100 to-white'>
+			<header className='bg-gradient-to-b from-indigo-200 via-purple-100 to-white'>
 				<Banner />
 				<div className='container mx-auto px-8 sm:px-16 '>
 					<GiftCard />
 				</div>
-			</div>
+			</header>
 
 			<main className='max-w-[1600px] mx-auto px-8 sm:px-16 '>
 				<Fade bottom>
@@ -43,7 +44,7 @@ const Layout = ({ inspirationData, discoverData }) => {
 				<DiscoverExperiences discoverData={discoverData} />
 			</main>
 
-			{/* Footer */}
+			<Footer />
 		</>
 	);
 };
