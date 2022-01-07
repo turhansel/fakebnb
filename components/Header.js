@@ -1,43 +1,36 @@
-import Image from 'next/image'
-import {
-	SearchIcon,
-	GlobeAltIcon,
-	MenuIcon,
-	UserCircleIcon,
-	XIcon,
-	UsersIcon,
-} from '@heroicons/react/solid'
-import { useSession, signIn, signOut } from 'next-auth/react'
-import { useEffect, useState } from 'react'
-import 'react-date-range/dist/styles.css'
-import 'react-date-range/dist/theme/default.css'
-import { DateRangePicker } from 'react-date-range'
-import { DateRange } from 'react-date-range'
-import { useRouter } from 'next/dist/client/router'
+import Image from 'next/image';
+import { SearchIcon, GlobeAltIcon, MenuIcon, UserCircleIcon, XIcon, UsersIcon } from '@heroicons/react/solid';
+import { useSession, signIn, signOut } from 'next-auth/react';
+import { useEffect, useState } from 'react';
+import 'react-date-range/dist/styles.css';
+import 'react-date-range/dist/theme/default.css';
+import { DateRangePicker } from 'react-date-range';
+import { DateRange } from 'react-date-range';
+import { useRouter } from 'next/dist/client/router';
 
 const Header = ({ placeholder, page }) => {
-	const { data: session } = useSession()
-	const router = useRouter()
+	const { data: session } = useSession();
+	const router = useRouter();
 
-	const [searchInput, setSearchInput] = useState('')
-	const [startDate, setStartDate] = useState(new Date())
-	const [endDate, setEndDate] = useState(new Date())
-	const [noOfGuests, setNoOfGuests] = useState(1)
+	const [searchInput, setSearchInput] = useState('');
+	const [startDate, setStartDate] = useState(new Date());
+	const [endDate, setEndDate] = useState(new Date());
+	const [noOfGuests, setNoOfGuests] = useState(1);
 
 	const selectionRange = {
-		startDate,
-		endDate,
+		startDate:startDate,
+		endDate:endDate,
 		key: 'selection',
-	}
+	};
 
 	const handleSelect = (ranges) => {
-		setStartDate(ranges.selection.startDate)
-		setEndDate(ranges.selection.endDate)
-	}
+		setStartDate(ranges.selection.startDate);
+		setEndDate(ranges.selection.endDate);
+	};
 
 	const resetInput = () => {
-		setSearchInput('')
-	}
+		setSearchInput('');
+	};
 
 	const search = () => {
 		router.push({
@@ -48,26 +41,26 @@ const Header = ({ placeholder, page }) => {
 				endDate: endDate.toISOString(),
 				noOfGuests,
 			},
-		})
+		});
 
-		setSearchInput('')
-	}
+		setSearchInput('');
+	};
 
-	const [searchStatus, setSearchStatus] = useState(false)
-	const [scroll, setScroll] = useState(false)
+	const [searchStatus, setSearchStatus] = useState(false);
+	const [scroll, setScroll] = useState(false);
 
 	useEffect(() => {
 		const onScroll = () => {
 			if (window.scrollY > 20) {
-				setScroll(true)
+				setScroll(true);
 			} else {
-				setScroll(false)
+				setScroll(false);
 			}
-		}
+		};
 
-		window.addEventListener('scroll', onScroll)
-		return () => window.removeEventListener('scroll', onScroll)
-	}, [])
+		window.addEventListener('scroll', onScroll);
+		return () => window.removeEventListener('scroll', onScroll);
+	}, []);
 
 	return (
 		<header className='sticky top-0 z-50'>
@@ -75,25 +68,17 @@ const Header = ({ placeholder, page }) => {
 				className={
 					!searchStatus
 						? `grid grid-cols-2 sm:grid-cols-3 md:px-10 transition duration-300 ease-in-out bg-white shadow-md ${
-								!scroll &&
-								`${page == '/' ? 'bg-transparent shadow-none' : 'bg-white'}`
+								!scroll && `${page == '/' ? 'bg-transparent shadow-none' : 'bg-white'}`
 						  } p-5 ${searchInput && '-mb-90'}`
 						: `flex transition duration-300 ease-in-out bg-white ${
 								searchInput && 'flex-col -mb-90'
-						  } shadow-md ${
-								!scroll &&
-								`${page == '/' ? 'bg-transparent shadow-none' : 'bg-white'}`
-						  } p-5`
+						  } shadow-md ${!scroll && `${page == '/' ? 'bg-transparent shadow-none' : 'bg-white'}`} p-5`
 				}
 			>
 				{/* Left - Airbnb Logo */}
 				<div
 					onClick={() => router.push('/')}
-					className={
-						!searchStatus
-							? 'flex relative items-center h-10 cursor-pointer my-auto'
-							: 'hidden'
-					}
+					className={!searchStatus ? 'flex relative items-center h-10 cursor-pointer my-auto' : 'hidden'}
 				>
 					<Image
 						src='https://res.cloudinary.com/diuzwbnzu/image/upload/v1639510780/Airbnb_Logo_Be%CC%81lo_qe23zq.svg'
@@ -147,11 +132,7 @@ const Header = ({ placeholder, page }) => {
 							/>
 							<GlobeAltIcon className='h-6 cursor-pointer' />
 							<div className='flex items-center space-x-2 border-2 p-2 rounded-full bg-white text-gray-600'>
-								<MenuIcon
-									className={`h-6 cursor-pointer ${
-										session?.user.image && 'mr-2'
-									}`}
-								/>
+								<MenuIcon className={`h-6 cursor-pointer ${session?.user.image && 'mr-2'}`} />
 								{session?.user.image ? (
 									<Image
 										src={session.user.image}
@@ -174,8 +155,8 @@ const Header = ({ placeholder, page }) => {
 				</div>
 
 				{searchInput && (
-					<div className='flex flex-col col-span-3 mx-auto mt-5 bg-white p-5 rounded-xl'>
-						<div className='hidden sm:inline-flex'>
+					<div className='flex flex-col col-span-3 mx-auto mt-5 bg-white p-5 rounded-xl max-w-2xl'>
+						<div className='hidden sm:inline-flex '>
 							<DateRangePicker
 								ranges={[selectionRange]}
 								minDate={new Date()}
@@ -192,9 +173,7 @@ const Header = ({ placeholder, page }) => {
 							/>
 						</div>
 						<div className='flex items-center border-b mb-4'>
-							<h2 className='text-2xl flex-grow font-semibold'>
-								Number of Guests
-							</h2>
+							<h2 className='text-2xl flex-grow font-semibold'>Number of Guests</h2>
 							<UsersIcon className='h-5' />
 							<input
 								value={noOfGuests}
@@ -216,7 +195,7 @@ const Header = ({ placeholder, page }) => {
 				)}
 			</div>
 		</header>
-	)
-}
+	);
+};
 
-export default Header
+export default Header;

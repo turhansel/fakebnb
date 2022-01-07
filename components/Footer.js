@@ -21,7 +21,7 @@ const Footer = () => {
 						Report a neighbourhood concern
 					</p>
 				</div>
-				<div className='space-y-4 text-xs text-gray-800 mb-7'>
+				<div className='space-y-4 text-sm text-gray-800 mb-7'>
 					<h5 className='font-bold'>Community</h5>
 					<p className='hover:underline cursor-pointer'>
 						Airbnb.org: disaster relief housing
@@ -36,7 +36,7 @@ const Footer = () => {
 						Combating discrimination
 					</p>
 				</div>
-				<div className='space-y-4 text-xs text-gray-800 mb-7'>
+				<div className='space-y-4 text-sm text-gray-800 mb-7'>
 					<h5 className='font-bold'>Hosting</h5>
 					<p className='hover:underline cursor-pointer'>Try hosting</p>
 					<p className='hover:underline cursor-pointer'>
@@ -52,7 +52,7 @@ const Footer = () => {
 						How to host responsibly
 					</p>
 				</div>
-				<div className='space-y-4 text-xs text-gray-800 mb-7'>
+				<div className='space-y-4 text-sm text-gray-800 mb-7'>
 					<h5 className='font-bold'>About</h5>
 					<p className='hover:underline cursor-pointer'>Newsroom</p>
 					<p className='hover:underline cursor-pointer'>
