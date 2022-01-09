@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { getSession, useSession } from 'next-auth/react';
-import Login from '../components/Login';
 import Layout from '../components/Layout';
 import Header from '../components/Header';
 import Banner from '../components/Banner';
@@ -9,15 +8,20 @@ import { Fade } from 'react-reveal';
 import InspirationCard from '../components/InspirationCard';
 import DiscoverExperiences from '../components/DiscoverExperiences';
 import Footer from '../components/Footer';
+import Login from '../components/Login';
 
 export const Home = ({ inspirationData, discoverData }) => {
-	// if (!session) return <Login />;
-	// if (session) {
+	const { data: session } = useSession();
+	if (!session) return <Login />;
+
 	return (
 		<div>
 			<Head>
 				<title>Airbnb-ish: Holiday Rentals, Cabins, Beach Houses, Unique ...</title>
-				<link rel='icon' href='/favicon.ico' />
+				<link
+					rel='icon'
+					href='https://a0.muscache.com/airbnb/static/logotype_favicon-21cc8e6c6a2cca43f061d2dcabdf6e58.ico'
+				/>
 			</Head>
 
 			{/* <Layout inspirationData={inspirationData} discoverData={discoverData} /> */}
@@ -61,11 +65,9 @@ export async function getServerSideProps(context) {
 	const inspirationData = await fetch(`${process.env.NEXTAUTH_URL}/api/inspiration`).then((res) => res.json());
 	const discoverData = await fetch(`${process.env.NEXTAUTH_URL}/api/discover`).then((res) => res.json());
 
-	const session = await getSession(context);
-
 	return {
 		props: {
-			session,
+			session: await getSession(context),
 			inspirationData,
 			discoverData,
 		},
