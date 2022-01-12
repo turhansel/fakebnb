@@ -10,4 +10,7 @@ module.exports = {
 			'a0.muscache.com',
 		],
 	},
+	env: {
+		MAPBOX_KEY: process.env.MAPBOX_KEY,
+	},
 };

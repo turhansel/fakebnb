@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { getSession, useSession } from 'next-auth/react';
-import Layout from '../components/Layout';
 import Header from '../components/Header';
 import Banner from '../components/Banner';
 import GiftCard from '../components/GiftCard';

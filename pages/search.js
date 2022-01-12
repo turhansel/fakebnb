@@ -10,6 +10,7 @@ import InfoCard from '../components/InfoCard';
 import { ArrowSmDownIcon } from '@heroicons/react/outline';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import Image from 'next/image';
+import Map from '../components/Map';
 
 const Search = ({ locations }) => {
 	const { data: session } = useSession();
@@ -32,8 +33,6 @@ const Search = ({ locations }) => {
 	if (replacedLocation === 'newyork') {
 		searchResults = locations?.[0]?.newyork;
 	}
-
-	console.log('searchResults', searchResults);
 
 	return (
 		<>
@@ -81,14 +80,13 @@ const Search = ({ locations }) => {
 
 			<main className='flex bg-gray-100'>
 				<section className='overflow-scroll'>
-					<div className='flex flex-col bg-gray-100 px-6 my-5 space-y-5 lg:max-w-[900px] w-full'>
+					<div className='flex flex-col bg-gray-100 px-6 my-5 space-y-5 lg:max-w-[900px] '>
 						<div className='bg-white'>
 							<p className='text-xs'>300+ stays in London {location}</p>
 							<p className='text-xs text-gray-600 font-semibold mt-2 mb-6'>
 								{range} - {noOfGuests} {noOfGuests == 1 ? 'guest' : 'guests'}
 							</p>
 							<p className='flex items-center '>
-								{/* <ArrowSmDownIcon className='h-5 ' /> */}
 								<Image
 									src='https://a0.muscache.com/airbnb/static/packages/assets/frontend/explore-core/images/icon-uc-trophy.9ee78aa12d1a51a64b1dc566a4391ba5.gif'
 									width={40}
@@ -98,7 +96,7 @@ const Search = ({ locations }) => {
 								out of 5 stars.
 							</p>
 						</div>
-						<div className='flex-grow'>
+						<div className='flex flex-col bg-gray-100 px-6 my-5 space-y-5'>
 							{searchResults.map(({ _id, img, location, title, description, star, price, total }) => (
 								<InfoCard
 									key={_id}
@@ -116,9 +114,8 @@ const Search = ({ locations }) => {
 					</div>
 				</section>
 
-				<section >
-					
-					<div className='bg-black w-full'>Map</div>
+				<section className='hidden xl:inline-flex xl:min-w-[1000px] h-screen sticky top-20'>
+					<Map searchResults={searchResults} />
 				</section>
 			</main>
 
