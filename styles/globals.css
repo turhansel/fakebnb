@@ -11,5 +11,11 @@
 	}
 	.mapboxgl-canvas {
 		@apply relative top-0 bottom-0 w-full h-full;
+	.mapboxgl_canvas {
+		@apply w-full h-full z-10 relative;
+	}
+	.marker_inner {
+		@apply relative animate-bounce w-12 z-10;
+	}
 	}
 }
