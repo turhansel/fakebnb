@@ -2,7 +2,6 @@ import { LocationMarkerIcon } from '@heroicons/react/solid';
 import Image from 'next/image';
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import './custom.module.css';
 
 const Map = ({ searchResults, viewport, setViewport, selectedLocation, setSelectedLocation }) => {
 	console.log();

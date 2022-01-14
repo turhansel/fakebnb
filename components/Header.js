@@ -7,10 +7,16 @@ import 'react-date-range/dist/theme/default.css';
 import { DateRangePicker } from 'react-date-range';
 import { DateRange } from 'react-date-range';
 import { useRouter } from 'next/dist/client/router';
+import { useTheme } from 'next-themes';
 
 const Header = ({ placeholder, page }) => {
 	const { data: session } = useSession();
 	const router = useRouter();
+	const { theme, setTheme } = useTheme();
+
+	const changeTheme = () => {
+		setTheme(theme === 'light' ? 'dark' : 'light');
+	};
 
 	const [searchInput, setSearchInput] = useState('');
 	const [startDate, setStartDate] = useState(new Date());
@@ -18,8 +24,8 @@ const Header = ({ placeholder, page }) => {
 	const [noOfGuests, setNoOfGuests] = useState(1);
 
 	const selectionRange = {
-		startDate:startDate,
-		endDate:endDate,
+		startDate: startDate,
+		endDate: endDate,
 		key: 'selection',
 	};
 
@@ -32,7 +38,7 @@ const Header = ({ placeholder, page }) => {
 		setSearchInput('');
 	};
 
-	const search = () => {
+	const handleSearch = () => {
 		router.push({
 			pathname: '/search',
 			query: {
@@ -62,13 +68,24 @@ const Header = ({ placeholder, page }) => {
 		return () => window.removeEventListener('scroll', onScroll);
 	}, []);
 
+	const handleLogin = () => {
+		if (session) {
+			signOut();
+		}
+		signIn();
+		// router.push({
+		// 	pathname: '/login',
+		// });
+	};
+
 	return (
 		<header className='sticky top-0 z-50'>
 			<div
 				className={
 					!searchStatus
 						? `grid grid-cols-2 sm:grid-cols-3 md:px-10 transition duration-300 ease-in-out bg-white shadow-md ${
-								!scroll && `${page == '/' ? 'bg-transparent shadow-none' : 'bg-white'}`
+								!scroll &&
+								`${page === '/' || page === '/search' ? 'bg-transparent shadow-none' : 'bg-white'}`
 						  } p-5 ${searchInput && '-mb-90'}`
 						: `flex transition duration-300 ease-in-out bg-white ${
 								searchInput && 'flex-col -mb-90'
@@ -130,7 +147,7 @@ const Header = ({ placeholder, page }) => {
 								onClick={() => setSearchStatus(true)}
 								className='sm:hidden h-6 cursor-pointer'
 							/>
-							<GlobeAltIcon className='h-6 cursor-pointer' />
+							<GlobeAltIcon className='h-6 cursor-pointer' onClick={changeTheme} />
 							<div className='flex items-center space-x-2 border-2 p-2 rounded-full bg-white text-gray-600'>
 								<MenuIcon className={`h-6 cursor-pointer ${session?.user.image && 'mr-2'}`} />
 								{session?.user.image ? (
@@ -138,13 +155,13 @@ const Header = ({ placeholder, page }) => {
 										src={session.user.image}
 										height={24}
 										width={24}
-										onClick={!session ? signIn : signOut}
+										onClick={handleLogin}
 										// onClick={signOut}
 										className='rounded-full cursor-pointer'
 									/>
 								) : (
 									<UserCircleIcon
-										onClick={!session ? signIn : signOut}
+										onClick={handleLogin}
 										// onClick={signOut}
 										className='h-6 cursor-pointer'
 									/>
@@ -187,7 +204,7 @@ const Header = ({ placeholder, page }) => {
 							<button onClick={resetInput} className='flex-grow text-gray-500'>
 								Cancel
 							</button>
-							<button onClick={search} className='flex-grow text-red-400'>
+							<button onClick={handleSearch} className='flex-grow text-red-400'>
 								Search
 							</button>
 						</div>

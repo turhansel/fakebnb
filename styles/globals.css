@@ -3,19 +3,40 @@
 @tailwind utilities;
 
 @layer components {
-	.primary-button {
+	.primary_button {
 		@apply bg-white text-black  py-2 px-4 shadow-md rounded-lg  font-medium active:scale-90 transition duration-150 cursor-pointer;
 	}
-	.search-button {
+	.search_button {
 		@apply px-4 py-2 border rounded-full cursor-pointer hover:shadow-lg transition transform duration-100 ease-out active:scale-95 active:bg-gray-100;
 	}
-	.mapboxgl-canvas {
-		@apply relative top-0 bottom-0 w-full h-full;
+	.pagination_item {
+		@apply border-0 bg-gray-500 cursor-pointer rounded-full flex items-center justify-center w-12 h-12 outline-none
+		 hover:shadow-lg shadow-gray-900 mx-2;
+	}
 	.mapboxgl_canvas {
 		@apply w-full h-full z-10 relative;
 	}
 	.marker_inner {
-		@apply relative animate-bounce w-12 z-10;
+		@apply relative animate-bounce w-12  z-50;
 	}
+	.active {
+		@apply animate-none;
 	}
+	.popup_inner {
+		@apply bg-gradient-to-t from-gray-600 to-transparent bg-cover shadow-lg rounded-2xl text-white px-8 py-8;
+	}
+	.mapboxgl-popup-close-button {
+		@apply right-0 top-0 text-white leading-none  w-6 h-6 rounded-lg shadow-md shadow-black bg-red-400;
+	}
+}
+
+.mapboxgl-popup {
+	z-index: 1;
+}
+.mapboxgl-popup-content {
+	border-radius: 1rem;
+	padding: 0;
+	max-width: 240px;
+	width: 75%;
+	background: rgb(107 114 128);
 }
