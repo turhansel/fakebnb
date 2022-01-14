@@ -1,16 +1,18 @@
-import { StarIcon } from '@heroicons/react/solid';
+import { ArrowSmLeftIcon, ArrowSmRightIcon, StarIcon } from '@heroicons/react/solid';
 import { HeartIcon } from '@heroicons/react/solid';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import React, { useState } from 'react';
 
-const InfoCard = ({ img, location, title, description, star, price, total }) => {
+const InfoCard = ({ id, img, location, title, description, star, price, total, setSelectedLocation }) => {
 	const { data: session } = useSession();
-
 	const [fav, setFav] = useState(false);
 
 	return (
-		<div className='flex flex-col sm:flex-row items-center py-7 px-4 border-b shadow-md hover:shadow-lg space-y-5 sm:space-y-0  bg-white rounded-2xl'>
+		<div
+			className='flex flex-col sm:flex-row items-center py-7 px-4 border-b shadow-md hover:shadow-lg space-y-5 sm:space-y-0  bg-white rounded-2xl'
+			onClick={() => setSelectedLocation(id)}
+		>
 			<div className='relative h-44 w-72 md:h-52 md:w-80 flex-shrink-0 hover:scale-105 transition transform duration-200 ease-out cursor-pointer'>
 				<Image src={img} layout='fill' objectFit='cover' className='rounded-2xl' priority={false} />
 			</div>
@@ -18,7 +20,7 @@ const InfoCard = ({ img, location, title, description, star, price, total }) => 
 				<div className='flex items-center justify-between'>
 					<p>{location}</p>
 					<HeartIcon
-						className={`h-7 cursor-pointer  ${fav? 'text-red-700' : 'text-gray-400'}`}
+						className={`h-7 cursor-pointer  ${fav ? 'text-red-700' : 'text-gray-400'}`}
 						onClick={() => setFav(!fav)}
 					/>
 				</div>

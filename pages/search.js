@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+
 import Login from '../components/Login';
 import { getSession, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
@@ -9,8 +10,10 @@ import Head from 'next/head';
 import InfoCard from '../components/InfoCard';
 import { ArrowSmDownIcon } from '@heroicons/react/outline';
 import { ChevronDownIcon } from '@heroicons/react/solid';
+import { ArrowSmLeftIcon, ArrowSmRightIcon } from '@heroicons/react/solid';
 import Image from 'next/image';
 import Map from '../components/Map';
+import { getCenter } from 'geolib';
 
 const Search = ({ locations }) => {
 	const { data: session } = useSession();
@@ -34,6 +37,24 @@ const Search = ({ locations }) => {
 		searchResults = locations?.[0]?.newyork;
 	}
 
+	const coordinates = searchResults.map((coordinate) => ({
+		longitude: coordinate.long,
+		latitude: coordinate.lat,
+	}));
+
+	// center of the locations
+	const centerOfLocations = getCenter(coordinates);
+
+	const [selectedLocation, setSelectedLocation] = useState({});
+
+	const [viewport, setViewport] = useState({
+		width: '100%',
+		height: '100%',
+		latitude: centerOfLocations.latitude,
+		longitude: centerOfLocations.longitude,
+		zoom: 11,
+	});
+
 	return (
 		<>
 			<Head>
@@ -50,28 +71,28 @@ const Search = ({ locations }) => {
 			/>
 			<div className='px-6 border-b pt-4 shadow-md bg-white'>
 				<div className='hidden lg:inline-flex mb-5 space-x-2 text-gray-700 whitespace-nowrap text-sm'>
-					<p className='search-button flex items-center justify-between'>
+					<p className='search_button flex items-center justify-between'>
 						Price
 						<ChevronDownIcon className='h-5 ' />
 					</p>
-					<p className='search-button flex items-center justify-between'>
+					<p className='search_button flex items-center justify-between'>
 						Type of Place
 						<ChevronDownIcon className='h-5 ' />
 					</p>
 					<div className='divide-y divide-gray-400 hover:divide-y-8'></div>
-					<p className='search-button'>Free cancellation</p>
-					<p className='search-button'>Wifi</p>
-					<p className='search-button'>Kitchen</p>
-					<p className='search-button'>Washing machine</p>
-					<p className='search-button'>Free Parking</p>
-					<p className='search-button'>Hut tub</p>
-					<p className='search-button'>Self check-in</p>
-					<p className='search-button'>Dryer</p>
-					<p className='search-button'>Decicated workspace</p>
-					<p className='search-button'>Iron</p>
-					<p className='search-button'>Indoor fireplace</p>
-					<p className='search-button'>Gym</p>
-					<p className='search-button flex items-center justify-between'>
+					<p className='search_button'>Free cancellation</p>
+					<p className='search_button'>Wifi</p>
+					<p className='search_button'>Kitchen</p>
+					<p className='search_button'>Washing machine</p>
+					<p className='search_button'>Free Parking</p>
+					<p className='search_button'>Hut tub</p>
+					<p className='search_button'>Self check-in</p>
+					<p className='search_button'>Dryer</p>
+					<p className='search_button'>Decicated workspace</p>
+					<p className='search_button'>Iron</p>
+					<p className='search_button'>Indoor fireplace</p>
+					<p className='search_button'>Gym</p>
+					<p className='search_button flex items-center justify-between'>
 						Filters
 						<ArrowSmDownIcon className='h-5 ' />
 					</p>
@@ -82,7 +103,9 @@ const Search = ({ locations }) => {
 				<section className='overflow-scroll'>
 					<div className='flex flex-col bg-gray-100 px-6 my-5 space-y-5 lg:max-w-[900px] '>
 						<div className='bg-white'>
-							<p className='text-xs'>300+ stays in London {location}</p>
+							<p className='text-xs'>
+								300+ stays in {location.charAt(0).toUpperCase() + location.slice(1)}
+							</p>
 							<p className='text-xs text-gray-600 font-semibold mt-2 mb-6'>
 								{range} - {noOfGuests} {noOfGuests == 1 ? 'guest' : 'guests'}
 							</p>
@@ -108,14 +131,41 @@ const Search = ({ locations }) => {
 									star={star}
 									price={price}
 									total={total}
+									setSelectedLocation={setSelectedLocation}
 								/>
 							))}
+						</div>
+						<div className='flex pt-6 items-center text-white lg:px-10'>
+							<button
+								className='mr-auto bg-white text-gray-600 hover:border-2 border-gray-600 pagination_item '
+								aria-label='previous'
+							>
+								<ArrowSmLeftIcon />
+							</button>
+							<span className='pagination_item bg-gray-900'>1</span>
+							<span className='pagination_item '>2</span>
+							<span className='pagination_item'>3</span>
+							<span className='text-gray-600'>...</span>
+							<span className='pagination_item'>8</span>
+							<span className='pagination_item'>9</span>
+							<button
+								className='ml-auto bg-white text-gray-600 hover:border-2 border-gray-600 pagination_item'
+								aria-label='next'
+							>
+								<ArrowSmRightIcon />
+							</button>
 						</div>
 					</div>
 				</section>
 
 				<section className='hidden xl:inline-flex xl:min-w-[1000px] h-screen sticky top-20'>
-					<Map searchResults={searchResults} />
+					<Map
+						searchResults={searchResults}
+						viewport={viewport}
+						setViewport={setViewport}
+						selectedLocation={selectedLocation}
+						setSelectedLocation={setSelectedLocation}
+					/>
 				</section>
 			</main>
 

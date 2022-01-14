@@ -1,9 +1,12 @@
 import { LocationMarkerIcon } from '@heroicons/react/solid';
 import Image from 'next/image';
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import './custom.module.css';
 
 const Map = ({ searchResults, viewport, setViewport, selectedLocation, setSelectedLocation }) => {
-	console.log(selectedLocation);
+	console.log();
+
 	return (
 		<div className='mapboxgl_canvas'>
 			<ReactMapGL
@@ -13,7 +16,7 @@ const Map = ({ searchResults, viewport, setViewport, selectedLocation, setSelect
 				onViewportChange={(nextViewport) => setViewport(nextViewport)}
 			>
 				{searchResults.map((result, index) => (
-					<div key={result.id}>
+					<div key={result._id}>
 						<Marker longitude={result.long} latitude={result.lat}>
 							<p
 								role='img'
@@ -21,7 +24,7 @@ const Map = ({ searchResults, viewport, setViewport, selectedLocation, setSelect
 								onClick={() => setSelectedLocation(result._id)}
 								aria-label='push-pin'
 							>
-								<LocationMarkerIcon className='fill-red-400' />
+								<LocationMarkerIcon className='fill-red-400 cursor-pointer' />
 							</p>
 						</Marker>
 
@@ -31,20 +34,13 @@ const Map = ({ searchResults, viewport, setViewport, selectedLocation, setSelect
 								closeOnClick={true}
 								latitude={result.lat}
 								longitude={result.long}
-								className='popup'
+								altitude={10}
 							>
-								<div className='max max-w-xs max-h-3.5'>
-									{/* <div className='relative'>
-										<Image src={result.img} width={200} height={200} />
-										<h5 className='absolute top-3/4 left-1/4 text-white'>{result.title}</h5>
-									</div> */}
-									<div className='popup_inner'>
-
-									</div>
-
-									<div className='flex justify-evenly'>
-										<h4>£{result.price}GBP</h4>
-									</div>
+								
+								<div>
+									<Image src={result.img} width={200} height={200} />
+									<h5>{result.title}</h5>
+									<h4 className=''>£{result.price}GBP</h4>
 								</div>
 							</Popup>
 						) : null}

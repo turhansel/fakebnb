@@ -1,5 +1,5 @@
-import Image from 'next/image'
-import React from 'react'
+import Image from 'next/image';
+import React from 'react';
 
 const GiftCard = () => {
 	return (
@@ -11,9 +11,7 @@ const GiftCard = () => {
 				<div className='flex items-center flex-col justify-center space-y-7 '>
 					<span className='text-2xl'>Introducing</span>
 					<h2 className='text-5xl font-semibold'>Airbnb gift cards</h2>
-					<button className='bg-black text-white primary-button'>
-						Shop Now
-					</button>
+					<button className='bg-black text-white primary_button'>Shop Now</button>
 				</div>
 				<div className='flex items-center relative'>
 					<div className='rotate-[15deg] z-20 mb-8'>
@@ -41,6 +39,6 @@ const GiftCard = () => {
 			</div>
 		</div>
 	);
-}
+};
 
-export default GiftCard
+export default GiftCard;

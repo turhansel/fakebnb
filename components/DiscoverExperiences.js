@@ -27,7 +27,7 @@ const DiscoverExperiences = ({ discoverData }) => {
 
 							<div className='absolute top-16 left-12'>
 								<p>{description}</p>
-								<button className='primary-button'>{buttonText}</button>
+								<button className='primary_button'>{buttonText}</button>
 							</div>
 						</div>
 					))}
@@ -45,7 +45,7 @@ const DiscoverExperiences = ({ discoverData }) => {
 
 					<div className='absolute top-16 left-12'>
 						<p>Questions about hosting?</p>
-						<button className='primary-button'>Ask a Superhost</button>
+						<button className='primary_button'>Ask a Superhost</button>
 					</div>
 				</div>
 			</section>
