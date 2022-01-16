@@ -9,6 +9,7 @@
 	},
 	"dependencies": {
 		"@heroicons/react": "^1.0.5",
+		"@stripe/stripe-js": "^1.22.0",
 		"date-fns": "^2.27.0",
 		"geolib": "^3.3.3",
 		"next": "latest",
@@ -17,8 +18,9 @@
 		"react": "^17.0.2",
 		"react-date-range": "^1.4.0",
 		"react-dom": "^17.0.2",
+		"react-map-gl": "^6.1.16",
 		"react-reveal": "^1.2.2",
-		"react-map-gl": "^6.1.16"
+		"stripe": "^8.197.0"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^15.0.0",
