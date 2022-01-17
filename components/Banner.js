@@ -17,8 +17,8 @@ const Banner = () => {
 				<p className='font-semibold text-white 2xl:line-height-70 sm:line-height-45 2xl:text-[50px] sm:text-[35px] text-3xl text-center sm:text-left max-w-sm-[20px]'>
 					Not sure where to go? Perfect.
 				</p>
-				<button className=' bg-white py-2 px-4 shadow-md rounded-full my-5 font-medium active:scale-90 transition duration-150 '>
-					<span className='text-transparent bg-clip-text bg-gradient-to-br from-[#6F019C] to-[#C6017E]'>
+				<button className=' bg-white md:py-4 py-2 md:px-8 px-4 shadow-md rounded-full my-5 font-medium active:scale-90 transition duration-150 '>
+					<span className='text-transparent bg-clip-text md:text-lg bg-gradient-to-br from-[#6F019C] to-[#C6017E]'>
 						I'm flexible
 					</span>
 				</button>

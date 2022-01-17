@@ -14,7 +14,7 @@ export const Home = ({ inspirationData, discoverData }) => {
 	if (!session) return <Login />;
 
 	return (
-		<div>
+		<div className='dark:bg-black'>
 			<Head>
 				<title>Airbnb-ish: Holiday Rentals, Cabins, Beach Houses, Unique ...</title>
 				<link
@@ -22,39 +22,39 @@ export const Home = ({ inspirationData, discoverData }) => {
 					href='https://a0.muscache.com/airbnb/static/logotype_favicon-21cc8e6c6a2cca43f061d2dcabdf6e58.ico'
 				/>
 			</Head>
+			<div>
+				<Header page='/' />
+				<header className='bg-gradient-to-b from-indigo-200 via-purple-100 to-white'>
+					<Banner />
+					<div className='max-w-[1600px] mx-auto px-8 sm:px-16 '>
+						<GiftCard />
+					</div>
+				</header>
 
-			{/* <Layout inspirationData={inspirationData} discoverData={discoverData} /> */}
-			<Header page='/' />
-			<header className='bg-gradient-to-b from-indigo-200 via-purple-100 to-white'>
-				<Banner />
-				<div className='max-w-[1600px] mx-auto px-8 sm:px-16 '>
-					<GiftCard />
-				</div>
-			</header>
+				<main className='max-w-[1600px] mx-auto px-8 sm:px-16 '>
+					<Fade bottom>
+						<section className='pt-6'>
+							<h2 className='text-4xl font-semibold pt-14 pb-12'>Inspiration for your next trip</h2>
 
-			<main className='max-w-[1600px] mx-auto px-8 sm:px-16 '>
-				<Fade bottom>
-					<section className='pt-6'>
-						<h2 className='text-4xl font-semibold pt-14 pb-12'>Inspiration for your next trip</h2>
+							<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'>
+								{inspirationData.map(({ _id, img, location, distance, color }) => (
+									<InspirationCard
+										key={_id}
+										id={_id}
+										img={img}
+										location={location}
+										distance={distance}
+										color={color}
+									/>
+								))}
+							</div>
+						</section>
+					</Fade>
+					<DiscoverExperiences discoverData={discoverData} />
+				</main>
 
-						<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'>
-							{inspirationData.map(({ _id, img, location, distance, color }) => (
-								<InspirationCard
-									key={_id}
-									id={_id}
-									img={img}
-									location={location}
-									distance={distance}
-									color={color}
-								/>
-							))}
-						</div>
-					</section>
-				</Fade>
-				<DiscoverExperiences discoverData={discoverData} />
-			</main>
-
-			<Footer />
+				<Footer />
+			</div>
 		</div>
 	);
 	// }

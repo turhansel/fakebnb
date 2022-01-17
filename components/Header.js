@@ -132,7 +132,7 @@ const Header = ({ placeholder, page }) => {
 				{/* Right - Icons */}
 				<div
 					className={`flex items-center justify-end space-x-4 transition duration-200 ease-in-out ${
-						!scroll && `${page == 'Home' ? 'text-white' : 'text-gray-600'}`
+						!scroll && `${page == '/' ? 'text-white' : 'text-gray-600'}`
 					}`}
 				>
 					{searchStatus ? (
