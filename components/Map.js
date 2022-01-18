@@ -4,13 +4,13 @@ import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 const Map = ({ searchResults, viewport, setViewport, selectedLocation, setSelectedLocation }) => {
-	console.log();
+	
 
 	return (
 		<div className='mapboxgl_canvas'>
 			<ReactMapGL
 				mapStyle='mapbox://styles/turhansel/cky975luk0rva14s8uxpu1uuo'
-				mapboxApiAccessToken={process.env.MAPBOX_KEY}
+				mapboxApiAccessToken={process.env.mapbox_key}
 				{...viewport}
 				onViewportChange={(nextViewport) => setViewport(nextViewport)}
 			>

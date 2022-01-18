@@ -21,12 +21,14 @@ const Search = ({ locations }) => {
 	const router = useRouter();
 
 	const { location, startDate, endDate, noOfGuests } = router.query;
+	let searchResults = locations?.[0]?.london;
+
+	const [selectedLocation, setSelectedLocation] = useState(searchResults?.[0]?._id);
 
 	const formattedStartDate = format(new Date(startDate), 'MMMM dd, yyyy');
 	const formattedEndDate = format(new Date(endDate), 'MMMM dd, yyyy');
 	const range = `${formattedStartDate} - ${formattedEndDate}`;
 
-	let searchResults = locations?.[0]?.london;
 	const replacedLocation = location.replace(/\s+/g, '').toLocaleLowerCase();
 
 	if (replacedLocation === 'london') {
@@ -37,15 +39,13 @@ const Search = ({ locations }) => {
 		searchResults = locations?.[0]?.newyork;
 	}
 
-	const coordinates = searchResults.map((coordinate) => ({
+	let coordinates = searchResults.map((coordinate) => ({
 		longitude: coordinate.long,
 		latitude: coordinate.lat,
 	}));
 
 	// center of the locations
 	const centerOfLocations = getCenter(coordinates);
-
-	const [selectedLocation, setSelectedLocation] = useState({});
 
 	const [viewport, setViewport] = useState({
 		width: '100%',
@@ -54,6 +54,8 @@ const Search = ({ locations }) => {
 		longitude: centerOfLocations.longitude,
 		zoom: 11,
 	});
+
+	console.log('centerOfLocations', centerOfLocations);
 
 	return (
 		<>
@@ -101,39 +103,29 @@ const Search = ({ locations }) => {
 
 			<main className='flex bg-gray-100'>
 				<section className='overflow-scroll'>
+					<div className='flex flex-col sm:flex-col  py-4 px-4 border-b shadow-md hover:shadow-lg bg-white rounded-2xl'>
+						<p className='text-sm'>300+ stays in {location.charAt(0).toUpperCase() + location.slice(1)}</p>
+						<p className='text-sm text-gray-600 font-semibold '>
+							{range} - {noOfGuests} {noOfGuests == 1 ? 'guest' : 'guests'}
+						</p>
+
+						<p className='flex items-center '>
+							<Image
+								src='https://a0.muscache.com/airbnb/static/packages/assets/frontend/explore-core/images/icon-uc-trophy.9ee78aa12d1a51a64b1dc566a4391ba5.gif'
+								width={40}
+								height={40}
+							/>
+							More than 1,000,000 guests have stayed in London. On average they rated their stays 4.7 out
+							of 5 stars.
+						</p>
+					</div>
 					<div className='flex flex-col bg-gray-100 px-6 my-5 space-y-5 lg:max-w-[900px] '>
-						<div className='bg-white'>
-							<p className='text-xs'>
-								300+ stays in {location.charAt(0).toUpperCase() + location.slice(1)}
-							</p>
-							<p className='text-xs text-gray-600 font-semibold mt-2 mb-6'>
-								{range} - {noOfGuests} {noOfGuests == 1 ? 'guest' : 'guests'}
-							</p>
-							<p className='flex items-center '>
-								<Image
-									src='https://a0.muscache.com/airbnb/static/packages/assets/frontend/explore-core/images/icon-uc-trophy.9ee78aa12d1a51a64b1dc566a4391ba5.gif'
-									width={40}
-									height={40}
-								/>
-								More than 1,000,000 guests have stayed in London. On average they rated their stays 4.7
-								out of 5 stars.
-							</p>
-						</div>
 						<div className='flex flex-col bg-gray-100 px-6 my-5 space-y-5'>
-							{searchResults.map(({ _id, img, location, title, description, star, price, total }) => (
-								<InfoCard
-									key={_id}
-									id={_id}
-									img={img}
-									location={location}
-									title={title}
-									description={description}
-									star={star}
-									price={price}
-									total={total}
-									setSelectedLocation={setSelectedLocation}
-								/>
-							))}
+							<InfoCard
+								searchResults={searchResults}
+								selectedLocation={selectedLocation}
+								setSelectedLocation={setSelectedLocation}
+							/>
 						</div>
 						<div className='flex pt-6 items-center text-white lg:px-10'>
 							<button
