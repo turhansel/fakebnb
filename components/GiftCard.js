@@ -5,13 +5,12 @@ const GiftCard = () => {
 	return (
 		<div className='flex items-center justify-center '>
 			<div
-				className='w-[800px] h-[400px]  md:w-[1600px] md:h-[800px] bg-white rounded-xl  grid grid-cols-2 gap-4 place-content-center relative px-4 py-10shadow-lg sm:rounded-3xl sm:p-20 bg-clip-padding bg-opacity-60 border border-gray-200 backdrop-filter-blur hover:shadow-[0_25px_40px_-15px_#ffd338]'
-				// style={{ backdropFilter: 'blur(20px)' }}
+				className='w-[800px] h-[400px]  md:w-[1600px] md:h-[800px] bg-white rounded-xl  grid grid-cols-2 gap-4 place-content-center relative px-4 py-10shadow-lg sm:rounded-3xl sm:p-20 bg-clip-padding bg-opacity-60 border border-gray-200 backdrop-filter-blur hover:shadow-[0_25px_40px_-15px_#ffd338] dark:hover:shadow-slate-100'
 			>
 				<div className='flex items-center flex-col justify-center space-y-7 '>
 					<span className='text-2xl'>Introducing</span>
 					<h2 className='text-5xl font-semibold'>Airbnb gift cards</h2>
-					<button className='bg-black text-white primary_button'>Shop Now</button>
+					<button className='bg-black text-white primary_button md:py-4 md:px-12 md:mt-4'>Shop Now</button>
 				</div>
 				<div className='flex items-center relative'>
 					<div className='rotate-[15deg] z-20 mb-8'>

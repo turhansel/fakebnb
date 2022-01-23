@@ -7,14 +7,13 @@ import { Fade } from 'react-reveal';
 import InspirationCard from '../components/InspirationCard';
 import DiscoverExperiences from '../components/DiscoverExperiences';
 import Footer from '../components/Footer';
-import Login from '../components/Login';
+import { useTheme } from 'next-themes';
 
 export const Home = ({ inspirationData, discoverData }) => {
-	const { data: session } = useSession();
-	if (!session) return <Login />;
+	const { theme } = useTheme();
 
 	return (
-		<div className='dark:bg-black'>
+		<div className='dark:bg-dark dark:text-white'>
 			<Head>
 				<title>Airbnb-ish: Holiday Rentals, Cabins, Beach Houses, Unique ...</title>
 				<link
@@ -22,20 +21,23 @@ export const Home = ({ inspirationData, discoverData }) => {
 					href='https://a0.muscache.com/airbnb/static/logotype_favicon-21cc8e6c6a2cca43f061d2dcabdf6e58.ico'
 				/>
 			</Head>
-			<div>
+			<div className=' '>
 				<Header page='/' />
-				<header className='bg-gradient-to-b from-indigo-200 via-purple-100 to-white'>
+				<div
+					className={`${
+						theme === 'dark' ? 'bg-dark' : 'bg-gradient-to-b from-indigo-200 via-purple-100 to-white'
+					} dark:bg-dark `}
+				>
 					<Banner />
 					<div className='max-w-[1600px] mx-auto px-8 sm:px-16 '>
 						<GiftCard />
 					</div>
-				</header>
+				</div>
 
-				<main className='max-w-[1600px] mx-auto px-8 sm:px-16 '>
+				<main className='max-w-[1600px] mx-auto px-8 sm:px-16'>
 					<Fade bottom>
 						<section className='pt-6'>
 							<h2 className='text-4xl font-semibold pt-14 pb-12'>Inspiration for your next trip</h2>
-
 							<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'>
 								{inspirationData.map(({ _id, img, location, distance, color }) => (
 									<InspirationCard
@@ -44,7 +46,6 @@ export const Home = ({ inspirationData, discoverData }) => {
 										img={img}
 										location={location}
 										distance={distance}
-										color={color}
 									/>
 								))}
 							</div>
@@ -52,12 +53,10 @@ export const Home = ({ inspirationData, discoverData }) => {
 					</Fade>
 					<DiscoverExperiences discoverData={discoverData} />
 				</main>
-
 				<Footer />
 			</div>
 		</div>
 	);
-	// }
 };
 
 export async function getServerSideProps(context) {

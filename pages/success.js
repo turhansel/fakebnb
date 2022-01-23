@@ -10,7 +10,7 @@ const Success = () => {
 	const router = useRouter();
 
 	return (
-		<div className='bg-gray-100 h-screen'>
+		<div className='bg-gray-100 dark:bg-dark-300 h-screen'>
 			<Head>
 				<title>Your location has been booked!</title>
 				<link
@@ -28,14 +28,14 @@ const Success = () => {
 					<div className='flex items-center justify-center space-x-2 mb-5'>
 						<CheckCircleIcon className='text-green-500 h-10' />
 						<h1 className='text-3xl font-semibold'>
-							Thank you, your vacation has been successfully booked!
+							Thank you, we have successfully booked your vacation!
 						</h1>
 					</div>
 					<button
 						onClick={() => router.push('/')}
-						className='bg-red-400 rounded-xl font-semibold py-2 mt-8 text-white'
+						className='bg-red-400 rounded-xl font-semibold py-2 mt-8 text-gray-200'
 					>
-						Return to Home
+						Keep traveling
 					</button>
 				</div>
 			</div>

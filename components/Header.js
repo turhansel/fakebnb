@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import { SearchIcon, GlobeAltIcon, MenuIcon, UserCircleIcon, XIcon, UsersIcon } from '@heroicons/react/solid';
+import { SearchIcon, MenuIcon, UserCircleIcon, XIcon, UsersIcon } from '@heroicons/react/solid';
+import { MoonIcon, SunIcon } from '@heroicons/react/outline';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import 'react-date-range/dist/styles.css';
@@ -71,25 +72,27 @@ const Header = ({ placeholder, page }) => {
 	const handleLogin = () => {
 		if (session) {
 			signOut();
+		} else {
+			router.push({
+				pathname: '/login',
+			});
 		}
-		signIn();
-		// router.push({
-		// 	pathname: '/login',
-		// });
 	};
 
 	return (
-		<header className='sticky top-0 z-50'>
+		<header className='sticky top-0 z-50 '>
 			<div
 				className={
 					!searchStatus
-						? `grid grid-cols-2 sm:grid-cols-3 md:px-10 transition duration-300 ease-in-out bg-white shadow-md ${
+						? `grid grid-cols-2 sm:grid-cols-3 md:px-10 transition duration-300 ease-in-out bg-white shadow-md dark:bg-dark ${
 								!scroll &&
-								`${page === '/' || page === '/search' ? 'bg-transparent shadow-none' : 'bg-white'}`
+								`${page === '/' || page === '/search' ? 'bg-transparent shadow-none' : 'bg-white '}`
 						  } p-5 ${searchInput && '-mb-90'}`
-						: `flex transition duration-300 ease-in-out bg-white ${
+						: `flex transition duration-300 ease-in-out bg-white dark:bg-dark ${
 								searchInput && 'flex-col -mb-90'
-						  } shadow-md ${!scroll && `${page == '/' ? 'bg-transparent shadow-none' : 'bg-white'}`} p-5`
+						  } shadow-md ${
+								!scroll && `${page == '/' ? 'bg-transparent shadow-none' : 'bg-white dark:bg-dark'}`
+						  } p-5`
 				}
 			>
 				{/* Left - Airbnb Logo */}
@@ -109,14 +112,14 @@ const Header = ({ placeholder, page }) => {
 				<div
 					className={
 						!searchStatus
-							? 'bg-white hidden sm:flex items-center md:border-2 rounded-full py-2 md:shadow-sm'
-							: 'bg-white flex items-center border-2 rounded-full py-2 shadow-sm flex-grow'
+							? 'bg-white hidden sm:flex items-center md:border-2 rounded-full py-2 md:shadow-sm dark:bg-dark-300'
+							: 'bg-white flex items-center border-2 rounded-full py-2 shadow-sm flex-grow dark:bg-dark-300'
 					}
 				>
 					<input
 						value={searchInput}
 						onChange={(e) => setSearchInput(e.target.value)}
-						className='ml-5 flex-grow bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400'
+						className='ml-5 flex-grow bg-transparent outline-none text-sm text-gray-600 dark:text-white placeholder-gray-400'
 						type='text'
 						placeholder={placeholder || 'Start your search'}
 					/>
@@ -142,13 +145,17 @@ const Header = ({ placeholder, page }) => {
 						/>
 					) : (
 						<>
-							<p className='hidden md:inline cursor-pointer'>Become a host</p>
+							<p className='hidden md:inline cursor-pointer dark:text-gray-300'>Become a host</p>
 							<SearchIcon
 								onClick={() => setSearchStatus(true)}
 								className='sm:hidden h-6 cursor-pointer'
 							/>
-							<GlobeAltIcon className='h-6 cursor-pointer' onClick={changeTheme} />
-							<div className='flex items-center space-x-2 border-2 p-2 rounded-full bg-white text-gray-600'>
+							{theme === 'dark' ? (
+								<SunIcon className='h-6 cursor-pointer text-yellow-200' onClick={changeTheme} />
+							) : (
+								<MoonIcon className='h-6 cursor-pointer' onClick={changeTheme} />
+							)}
+							<div className='flex items-center space-x-2 border-2 p-2 rounded-full bg-white text-gray-600 dark:bg-dark dark:text-white dark:border-dark-300'>
 								<MenuIcon className={`h-6 cursor-pointer ${session?.user.image && 'mr-2'}`} />
 								{session?.user.image ? (
 									<Image
@@ -172,8 +179,8 @@ const Header = ({ placeholder, page }) => {
 				</div>
 
 				{searchInput && (
-					<div className='flex flex-col col-span-3 mx-auto mt-5 bg-white p-5 rounded-xl max-w-2xl'>
-						<div className='hidden sm:inline-flex '>
+					<div className='flex flex-col col-span-3 mx-auto mt-5 bg-white p-5 rounded-xl max-w-2xl dark:text-dark-300 '>
+						<div className='hidden sm:inline-flex'>
 							<DateRangePicker
 								ranges={[selectionRange]}
 								minDate={new Date()}
@@ -181,7 +188,7 @@ const Header = ({ placeholder, page }) => {
 								onChange={handleSelect}
 							/>
 						</div>
-						<div className='inline-flex sm:hidden'>
+						<div className='inline-flex sm:hidden '>
 							<DateRange
 								ranges={[selectionRange]}
 								minDate={new Date()}
@@ -189,7 +196,7 @@ const Header = ({ placeholder, page }) => {
 								onChange={handleSelect}
 							/>
 						</div>
-						<div className='flex items-center border-b mb-4'>
+						<div className='flex items-center border-b mb-4 '>
 							<h2 className='text-2xl flex-grow font-semibold'>Number of Guests</h2>
 							<UsersIcon className='h-5' />
 							<input
@@ -197,7 +204,7 @@ const Header = ({ placeholder, page }) => {
 								onChange={(e) => setNoOfGuests(e.target.value)}
 								min={1}
 								type='number'
-								className='w-12 pl-2 text-lg outline-none text-red-400'
+								className='w-12 pl-2 text-lg outline-none text-red-400 dark:bg-dark-300 dark:text-white'
 							/>
 						</div>
 						<div className='flex'>

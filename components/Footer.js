@@ -4,9 +4,9 @@ import React from 'react';
 
 const Footer = () => {
 	return (
-		<footer className='bg-gray-100 pt-12 z-50'>
+		<footer className='bg-gray-100 pt-12 z-50 dark:bg-dark-300 dark:text-white pl-4 sm:pl-0'>
 			<div className='container mx-auto px-10 md:px-10 flex justify-between text-left flex-wrap flex-col md:flex-row'>
-				<div className='space-y-4 text-sm text-gray-800 mb-7'>
+				<div className='space-y-4 text-sm text-gray-800 mb-7 dark:text-white'>
 					<h5 className='font-bold'>Support</h5>
 					<p className='hover:underline cursor-pointer'>Help Centre</p>
 					<p className='hover:underline cursor-pointer'>Safety information</p>
@@ -21,7 +21,7 @@ const Footer = () => {
 						Report a neighbourhood concern
 					</p>
 				</div>
-				<div className='space-y-4 text-sm text-gray-800 mb-7'>
+				<div className='space-y-4 text-sm text-gray-800 mb-7 dark:text-white'>
 					<h5 className='font-bold'>Community</h5>
 					<p className='hover:underline cursor-pointer'>
 						Airbnb.org: disaster relief housing
@@ -36,7 +36,7 @@ const Footer = () => {
 						Combating discrimination
 					</p>
 				</div>
-				<div className='space-y-4 text-sm text-gray-800 mb-7'>
+				<div className='space-y-4 text-sm text-gray-800 mb-7 dark:text-white'>
 					<h5 className='font-bold'>Hosting</h5>
 					<p className='hover:underline cursor-pointer'>Try hosting</p>
 					<p className='hover:underline cursor-pointer'>
@@ -52,7 +52,7 @@ const Footer = () => {
 						How to host responsibly
 					</p>
 				</div>
-				<div className='space-y-4 text-sm text-gray-800 mb-7'>
+				<div className='space-y-4 text-sm text-gray-800 mb-7 dark:text-white'>
 					<h5 className='font-bold'>About</h5>
 					<p className='hover:underline cursor-pointer'>Newsroom</p>
 					<p className='hover:underline cursor-pointer'>
@@ -66,7 +66,7 @@ const Footer = () => {
 					<p className='hover:underline cursor-pointer'>Airbnb Luxe</p>
 				</div>
 			</div>
-			<div className='container mx-auto mt-6 border-t text-gray-700 text-lg border-gray-300 pt-6 pb-12 flex flex-col space-y-4 px-10 md:px-8 sm:space-y-0 sm:flex-row justify-between'>
+			<div className='container mx-auto mt-6 border-t text-gray-700 text-lg dark:text-white border-gray-300 pt-6 pb-12 flex flex-col space-y-4 px-10 md:px-8 sm:space-y-0 sm:flex-row justify-between'>
 				<p className='flex items-center space-x-3'>
 					<span>&copy;</span>
 					<span>2022</span>
@@ -74,19 +74,19 @@ const Footer = () => {
 				</p>
 				<p className='flex items-center space-x-4'>
 					<span className='flex items-center space-x-2 cursor-pointer'>
-						<GlobeAltIcon className='-mb-0.5 h-5 text-gray-600' />
+						<GlobeAltIcon className='-mb-0.5 h-5 text-gray-600 dark:text-white' />
 						<span className='underline '>English</span>
 					</span>
 					<span className='underline cursor-pointer'>£ GBP</span>
 					<Link href='https://www.facebook.com/profile.php?id=100075699940268'>
 						<a target='_blank'>
 							<svg
+							className='stroke-gray-700 dark:stroke-gray-200'
 								xmlns='http://www.w3.org/2000/svg'
 								width='24'
 								height='24'
 								viewBox='0 0 24 24'
 								fill='none'
-								stroke='#000'
 								strokeWidth='2'
 								strokeLinecap='round'
 								strokeLinejoin='round'
@@ -98,12 +98,12 @@ const Footer = () => {
 					<Link href='https://twitter.com/imturhansel'>
 						<a target='_blank'>
 							<svg
+							className='stroke-gray-700 dark:stroke-gray-200'
 								xmlns='http://www.w3.org/2000/svg'
 								width='24'
 								height='24'
 								viewBox='0 0 24 24'
 								fill='none'
-                                stroke='#000'
 								strokeWidth='2'
 								strokeLinecap='round'
 								strokeLinejoin='round'
@@ -116,12 +116,12 @@ const Footer = () => {
 					<Link href='https://www.instagram.com/imturhansel/'>
 						<a target='_blank' >
 							<svg
+							className='stroke-gray-700 dark:stroke-gray-200'
 								xmlns='http://www.w3.org/2000/svg'
 								width='24'
 								height='24'
 								viewBox='0 0 24 24'
 								fill='none'
-								stroke='#000'
 								strokeWidth='2'
 								strokeLinecap='round'
 								strokeLinejoin='round'

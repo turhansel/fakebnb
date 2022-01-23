@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-import Login from '../components/Login';
-import { getSession, useSession } from 'next-auth/react';
+import { getSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { format } from 'date-fns';
 import Head from 'next/head';
@@ -16,8 +15,6 @@ import Map from '../components/Map';
 import { getCenter } from 'geolib';
 
 const Search = ({ locations }) => {
-	const { data: session } = useSession();
-	if (!session) return <Login />;
 	const router = useRouter();
 
 	const { location, startDate, endDate, noOfGuests } = router.query;
@@ -55,23 +52,18 @@ const Search = ({ locations }) => {
 		zoom: 11,
 	});
 
-	console.log('centerOfLocations', centerOfLocations);
-
 	return (
 		<>
 			<Head>
 				<title>Stays in {location}</title>
-				<link
-					rel='icon'
-					href='https://a0.muscache.com/airbnb/static/logotype_favicon-21cc8e6c6a2cca43f061d2dcabdf6e58.ico'
-				/>
+				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
 			<Header
 				placeholder={`${location} | ${range} | ${noOfGuests} ${noOfGuests === 1 ? 'guest' : 'guests'}`}
 				page='/search'
 			/>
-			<div className='px-6 border-b pt-4 shadow-md bg-white'>
+			<div className='px-6 border-b pt-4 shadow-md bg-white dark:bg-dark'>
 				<div className='hidden lg:inline-flex mb-5 space-x-2 text-gray-700 whitespace-nowrap text-sm'>
 					<p className='search_button flex items-center justify-between'>
 						Price
@@ -94,18 +86,18 @@ const Search = ({ locations }) => {
 					<p className='search_button'>Iron</p>
 					<p className='search_button'>Indoor fireplace</p>
 					<p className='search_button'>Gym</p>
-					<p className='search_button flex items-center justify-between'>
+					<p className='search_button flex items-center justify-between '>
 						Filters
 						<ArrowSmDownIcon className='h-5 ' />
 					</p>
 				</div>
 			</div>
 
-			<main className='flex bg-gray-100'>
-				<section className='overflow-scroll'>
-					<div className='flex flex-col sm:flex-col  py-4 px-4 border-b shadow-md hover:shadow-lg bg-white rounded-2xl'>
+			<main className='flex bg-gray-100 dark:bg-dark'>
+				<section className='flex-1'>
+					<div className='flex flex-col py-4 px-4 shadow-md hover:shadow-lg bg-white dark:bg-gray-700 rounded-b-xl '>
 						<p className='text-sm'>300+ stays in {location.charAt(0).toUpperCase() + location.slice(1)}</p>
-						<p className='text-sm text-gray-600 font-semibold '>
+						<p className='text-sm text-gray-600 font-semibold dark:text-gray-200'>
 							{range} - {noOfGuests} {noOfGuests == 1 ? 'guest' : 'guests'}
 						</p>
 
@@ -115,33 +107,35 @@ const Search = ({ locations }) => {
 								width={40}
 								height={40}
 							/>
-							More than 1,000,000 guests have stayed in London. On average they rated their stays 4.7 out
-							of 5 stars.
+							<span className='ml-2 lg:ml-1'>
+								More than 1,000,000 guests have stayed in London. On average they rated their stays 4.7
+								out of 5 stars.
+							</span>
 						</p>
 					</div>
-					<div className='flex flex-col bg-gray-100 px-6 my-5 space-y-5 lg:max-w-[900px] '>
-						<div className='flex flex-col bg-gray-100 px-6 my-5 space-y-5'>
+					<div className='flex flex-col bg-gray-100 px-6 mb-5  w-full dark:bg-dark'>
+						<div className='flex flex-col my-5 space-y-5'>
 							<InfoCard
 								searchResults={searchResults}
 								selectedLocation={selectedLocation}
 								setSelectedLocation={setSelectedLocation}
 							/>
 						</div>
-						<div className='flex pt-6 items-center text-white lg:px-10'>
+						<div className='flex pt-6 items-center text-white lg:px-10 '>
 							<button
-								className='mr-auto bg-white text-gray-600 hover:border-2 border-gray-600 pagination_item '
+								className='mr-auto bg-gray-700 dark:bg-gray-200 dark:text-gray-700 text-gray-200 hover:border-2 border-gray-600 pagination_item '
 								aria-label='previous'
 							>
 								<ArrowSmLeftIcon />
 							</button>
-							<span className='pagination_item bg-gray-900'>1</span>
+							<span className='pagination_item bg-gray-800 dark:bg-gray-400'>1</span>
 							<span className='pagination_item '>2</span>
 							<span className='pagination_item'>3</span>
 							<span className='text-gray-600'>...</span>
 							<span className='pagination_item'>8</span>
 							<span className='pagination_item'>9</span>
 							<button
-								className='ml-auto bg-white text-gray-600 hover:border-2 border-gray-600 pagination_item'
+								className='ml-auto bg-gray-700 dark:bg-gray-200 dark:text-gray-700 text-gray-200 hover:border-2 border-gray-600 pagination_item'
 								aria-label='next'
 							>
 								<ArrowSmRightIcon />
@@ -150,7 +144,7 @@ const Search = ({ locations }) => {
 					</div>
 				</section>
 
-				<section className='hidden xl:inline-flex xl:min-w-[1000px] h-screen sticky top-20'>
+				<section className='hidden xl:inline-flex md:min-w-[600px]  2xl:min-w-[900px] h-screen sticky top-20'>
 					<Map
 						searchResults={searchResults}
 						viewport={viewport}
