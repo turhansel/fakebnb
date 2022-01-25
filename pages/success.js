@@ -1,10 +1,7 @@
 import { CheckCircleIcon } from '@heroicons/react/solid';
-import { getSession, useSession } from 'next-auth/react';
 import { useRouter } from 'next/dist/client/router';
 import Header from '../components/Header';
-import Login from '../components/Login';
 import Head from 'next/head';
-import Image from 'next/image';
 
 const Success = () => {
 	const router = useRouter();
