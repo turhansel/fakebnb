@@ -4,7 +4,7 @@
 
 @layer components {
 	.primary_button {
-		@apply bg-white text-black dark:bg-dark-300 dark:text-white py-2 px-4 shadow-md rounded-lg  font-medium active:scale-90 transition duration-150 cursor-pointer;
+		@apply bg-white text-black dark:bg-slate-800 dark:text-white py-2 px-4 shadow-md rounded-lg  font-medium active:scale-90 transition duration-150 cursor-pointer;
 	}
 	.search_button {
 		@apply px-4 py-2 border rounded-full cursor-pointer hover:shadow-lg dark:hover:shadow-md dark:hover:shadow-slate-100 transition transform duration-100 ease-out active:scale-95 active:bg-gray-100 dark:bg-dark-300 dark:text-gray-200 dark:border-gray-600;
@@ -37,12 +37,11 @@
 	z-index: 1;
 }
 .mapboxgl-popup-content {
-	background: #e7e5e4   !important;
+	background: #e7e5e4 !important;
 	border-radius: 1rem !important;
 	padding: 0;
 	max-width: 240px;
 	width: 75%;
-	
 }
 
 .mapboxgl-popup-content img {
@@ -59,7 +58,7 @@
 	border-radius: 4px !important;
 	cursor: pointer;
 	padding: 2px 2px;
-	background-color: #c22f4f  !important;
+	background-color: #c22f4f !important;
 }
 
 .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {

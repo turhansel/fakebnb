@@ -95,7 +95,7 @@ const Search = ({ locations }) => {
 
 			<main className='flex bg-gray-100 dark:bg-dark'>
 				<section className='flex-1'>
-					<div className='flex flex-col py-4 px-4 shadow-md hover:shadow-lg bg-white dark:bg-gray-700 rounded-b-xl '>
+					<div className='flex flex-col py-4 px-4 shadow-md hover:shadow-lg bg-white dark:bg-gray-700 rounded-b-xl space-y-1 sm:space-y-0'>
 						<p className='text-sm'>300+ stays in {location.charAt(0).toUpperCase() + location.slice(1)}</p>
 						<p className='text-sm text-gray-600 font-semibold dark:text-gray-200'>
 							{range} - {noOfGuests} {noOfGuests == 1 ? 'guest' : 'guests'}
@@ -113,7 +113,7 @@ const Search = ({ locations }) => {
 							</span>
 						</p>
 					</div>
-					<div className='flex flex-col bg-gray-100 px-6 mb-5  w-full dark:bg-dark'>
+					<div className='flex flex-col bg-gray-100 md:px-6 mb-5  w-full dark:bg-dark'>
 						<div className='flex flex-col my-5 space-y-5'>
 							<InfoCard
 								searchResults={searchResults}
