@@ -1,7 +1,5 @@
-import { useTheme } from 'next-themes';
 import Image from 'next/image';
 const Banner = () => {
-	const { theme } = useTheme();
 	return (
 		<div>
 			<div className='h-screen w-screen overflow-hidden '>
@@ -19,13 +17,7 @@ const Banner = () => {
 					Not sure where to go? Perfect.
 				</p>
 				<button className='dark:bg-dark-300 bg-white md:py-4 py-2 md:px-8 px-4 shadow-md rounded-full my-5 font-medium active:scale-90 transition duration-150 '>
-					<span
-						className={`${
-							theme === 'dark'
-								? 'text-white'
-								: 'text-transparent bg-clip-text bg-gradient-to-br from-[#6F019C] to-[#C6017E]'
-						} md:text-lg `}
-					>
+					<span className=' md:text-lg dark:text-white text-transparent bg-clip-text bg-gradient-to-br from-[#6F019C] to-[#C6017E]'>
 						I'm flexible
 					</span>
 				</button>

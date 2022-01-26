@@ -72,7 +72,7 @@ const Footer = () => {
 					<span>2022</span>
 					<span>Turhan Sel</span>
 				</p>
-				<p className='flex items-center space-x-4'>
+				<div className='flex items-center space-x-4'>
 					<span className='flex items-center space-x-2 cursor-pointer'>
 						<GlobeAltIcon className='-mb-0.5 h-5 text-gray-600 dark:text-white' />
 						<span className='underline '>English</span>
@@ -132,7 +132,7 @@ const Footer = () => {
 							</svg>
 						</a>
 					</Link>
-				</p>
+				</div>
 			</div>
 		</footer>
 	);

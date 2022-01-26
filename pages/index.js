@@ -7,10 +7,8 @@ import { Fade } from 'react-reveal';
 import InspirationCard from '../components/InspirationCard';
 import DiscoverExperiences from '../components/DiscoverExperiences';
 import Footer from '../components/Footer';
-import { useTheme } from 'next-themes';
 
 export const Home = ({ inspirationData, discoverData }) => {
-	const { theme } = useTheme();
 
 	return (
 		<div className='dark:bg-dark dark:text-white'>
@@ -24,9 +22,7 @@ export const Home = ({ inspirationData, discoverData }) => {
 			<div className=' '>
 				<Header page='/' />
 				<div
-					className={`${
-						theme === 'dark' ? 'bg-dark' : 'bg-gradient-to-b from-indigo-200 via-purple-100 to-white'
-					} dark:bg-dark `}
+					className={` bg-gradient-to-b from-indigo-200 via-purple-100 to-white dark:bg-gradient-to-b dark:from-dark-300 dark:to-dark`}
 				>
 					<Banner />
 					<div className='max-w-[1600px] mx-auto px-8 sm:px-16 '>
