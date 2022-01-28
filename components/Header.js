@@ -7,8 +7,8 @@ import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import { DateRangePicker } from 'react-date-range';
 import { DateRange } from 'react-date-range';
-import { useRouter } from 'next/dist/client/router';
 import { useTheme } from 'next-themes';
+import { useRouter } from 'next/router';
 
 const Header = ({ placeholder, page }) => {
 	const { data: session } = useSession();
