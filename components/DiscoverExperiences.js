@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import React from 'react';
-import { Fade } from 'react-reveal';
 
 const DiscoverExperiences = ({ discoverData }) => {
 	return (
@@ -8,41 +7,40 @@ const DiscoverExperiences = ({ discoverData }) => {
 			<h2 className='text-4xl font-semibold pt-14 '>Discover Airbnb Experiences</h2>
 			<div className='grid grid-cols-1  xl:grid-cols-2 gap-9 '>
 				{discoverData.map(({ _id, img, description, buttonText }) => (
-					<Fade bottom key={_id}>
-						<div className='relative my-16 transition transform duration-150 hover:shadow-lg dark:hover:shadow-slate-100 rounded-3xl'>
-							<div className='relative min-w-[300px] h-[788px]'>
-								<Image src={img} layout='fill' objectFit='cover' className='rounded-2xl' />
-							</div>
-
-							<div className='absolute top-24 left-16'>
-								<p className='md:text-5xl text-3xl text-white font-normal md:max-w-[300px]'>
-									{description}
-								</p>
-								<button className='primary_button mt-7 py-4 px-6'>{buttonText}</button>
-							</div>
+					<div
+						key={_id}
+						className='relative my-16 transition transform duration-150 hover:shadow-lg dark:hover:shadow-slate-100 rounded-3xl'
+					>
+						<div className='relative min-w-[300px] h-[788px]'>
+							<Image src={img} layout='fill' objectFit='cover' className='rounded-2xl' />
 						</div>
-					</Fade>
+
+						<div className='absolute top-24 left-16'>
+							<p className='md:text-5xl text-3xl text-white font-normal md:max-w-[300px]'>
+								{description}
+							</p>
+							<button className='primary_button mt-7 py-4 px-6'>{buttonText}</button>
+						</div>
+					</div>
 				))}
 			</div>
-			<Fade bottom>
-				<div className='relative mb-16 transition transform duration-150 hover:shadow-lg dark:hover:shadow-slate-100 rounded-3xl'>
-					<div className='relative min-w-[300px] h-[788px]'>
-						<Image
-							src='https://res.cloudinary.com/diuzwbnzu/image/upload/v1642448877/discover-host_yzcklj.jpg'
-							layout='fill'
-							objectFit='cover'
-							className='rounded-2xl'
-						/>
-					</div>
-
-					<div className='absolute top-16 md:top-32 left-16 md:left-32 flex flex-col justify-between'>
-						<p className='md:text-7xl text-3xl text-white font-normal md:max-w-[300px]'>
-							Questions about hosting?
-						</p>
-						<button className='primary_button py-4 px-6 mt-56'>Ask a Superhost</button>
-					</div>
+			<div className='relative mb-16 transition transform duration-150 hover:shadow-lg dark:hover:shadow-slate-100 rounded-3xl'>
+				<div className='relative min-w-[300px] h-[788px]'>
+					<Image
+						src='https://res.cloudinary.com/diuzwbnzu/image/upload/v1642448877/discover-host_yzcklj.jpg'
+						layout='fill'
+						objectFit='cover'
+						className='rounded-2xl'
+					/>
 				</div>
-			</Fade>
+
+				<div className='absolute top-16 md:top-32 left-16 md:left-32 flex flex-col justify-between'>
+					<p className='md:text-7xl text-3xl text-white font-normal md:max-w-[300px]'>
+						Questions about hosting?
+					</p>
+					<button className='primary_button py-4 px-6 mt-56'>Ask a Superhost</button>
+				</div>
+			</div>
 		</section>
 	);
 };

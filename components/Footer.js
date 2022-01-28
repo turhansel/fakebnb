@@ -11,56 +11,30 @@ const Footer = () => {
 					<p className='hover:underline cursor-pointer'>Help Centre</p>
 					<p className='hover:underline cursor-pointer'>Safety information</p>
 					<p className='hover:underline cursor-pointer'>Cancellation options</p>
-					<p className='hover:underline cursor-pointer'>
-						Our COVID-19 Response
-					</p>
-					<p className='hover:underline cursor-pointer'>
-						Supporting people with disabilities
-					</p>
-					<p className='hover:underline cursor-pointer'>
-						Report a neighbourhood concern
-					</p>
+					<p className='hover:underline cursor-pointer'>Our COVID-19 Response</p>
+					<p className='hover:underline cursor-pointer'>Supporting people with disabilities</p>
+					<p className='hover:underline cursor-pointer'>Report a neighbourhood concern</p>
 				</div>
 				<div className='space-y-4 text-sm text-gray-800 mb-7 dark:text-white'>
 					<h5 className='font-bold'>Community</h5>
-					<p className='hover:underline cursor-pointer'>
-						Airbnb.org: disaster relief housing
-					</p>
-					<p className='hover:underline cursor-pointer'>
-						Support Afghan refugees
-					</p>
-					<p className='hover:underline cursor-pointer'>
-						Celebrating diversity & belonging
-					</p>
-					<p className='hover:underline cursor-pointer'>
-						Combating discrimination
-					</p>
+					<p className='hover:underline cursor-pointer'>Airbnb.org: disaster relief housing</p>
+					<p className='hover:underline cursor-pointer'>Support Afghan refugees</p>
+					<p className='hover:underline cursor-pointer'>Celebrating diversity & belonging</p>
+					<p className='hover:underline cursor-pointer'>Combating discrimination</p>
 				</div>
 				<div className='space-y-4 text-sm text-gray-800 mb-7 dark:text-white'>
 					<h5 className='font-bold'>Hosting</h5>
 					<p className='hover:underline cursor-pointer'>Try hosting</p>
-					<p className='hover:underline cursor-pointer'>
-						AirCover: protection for Hosts
-					</p>
-					<p className='hover:underline cursor-pointer'>
-						Explore hosting resources
-					</p>
-					<p className='hover:underline cursor-pointer'>
-						Visit our community forum
-					</p>
-					<p className='hover:underline cursor-pointer'>
-						How to host responsibly
-					</p>
+					<p className='hover:underline cursor-pointer'>AirCover: protection for Hosts</p>
+					<p className='hover:underline cursor-pointer'>Explore hosting resources</p>
+					<p className='hover:underline cursor-pointer'>Visit our community forum</p>
+					<p className='hover:underline cursor-pointer'>How to host responsibly</p>
 				</div>
 				<div className='space-y-4 text-sm text-gray-800 mb-7 dark:text-white'>
 					<h5 className='font-bold'>About</h5>
 					<p className='hover:underline cursor-pointer'>Newsroom</p>
-					<p className='hover:underline cursor-pointer'>
-						Learn about new features
-					</p>
-					<p className='hover:underline cursor-pointer'>
-						Letter from our founders
-					</p>
+					<p className='hover:underline cursor-pointer'>Learn about new features</p>
+					<p className='hover:underline cursor-pointer'>Letter from our founders</p>
 					<p className='hover:underline cursor-pointer'>Careers</p>
 					<p className='hover:underline cursor-pointer'>Investors</p>
 					<p className='hover:underline cursor-pointer'>Airbnb Luxe</p>
@@ -81,7 +55,7 @@ const Footer = () => {
 					<Link href='https://www.facebook.com/profile.php?id=100075699940268'>
 						<a target='_blank'>
 							<svg
-							className='stroke-gray-700 dark:stroke-gray-200'
+								className='stroke-gray-700 dark:stroke-gray-200'
 								xmlns='http://www.w3.org/2000/svg'
 								width='24'
 								height='24'
@@ -98,7 +72,7 @@ const Footer = () => {
 					<Link href='https://twitter.com/imturhansel'>
 						<a target='_blank'>
 							<svg
-							className='stroke-gray-700 dark:stroke-gray-200'
+								className='stroke-gray-700 dark:stroke-gray-200'
 								xmlns='http://www.w3.org/2000/svg'
 								width='24'
 								height='24'
@@ -114,9 +88,9 @@ const Footer = () => {
 					</Link>
 
 					<Link href='https://www.instagram.com/imturhansel/'>
-						<a target='_blank' >
+						<a target='_blank'>
 							<svg
-							className='stroke-gray-700 dark:stroke-gray-200'
+								className='stroke-gray-700 dark:stroke-gray-200'
 								xmlns='http://www.w3.org/2000/svg'
 								width='24'
 								height='24'

@@ -1,15 +1,13 @@
 import Head from 'next/head';
-import { getSession, useSession } from 'next-auth/react';
+import { getSession } from 'next-auth/react';
 import Header from '../components/Header';
 import Banner from '../components/Banner';
 import GiftCard from '../components/GiftCard';
-import { Fade } from 'react-reveal';
 import InspirationCard from '../components/InspirationCard';
 import DiscoverExperiences from '../components/DiscoverExperiences';
 import Footer from '../components/Footer';
 
 export const Home = ({ inspirationData, discoverData }) => {
-
 	return (
 		<div className='dark:bg-dark dark:text-white'>
 			<Head>
@@ -31,22 +29,14 @@ export const Home = ({ inspirationData, discoverData }) => {
 				</div>
 
 				<main className='max-w-[1600px] mx-auto px-8 sm:px-16'>
-					<Fade bottom>
-						<section className='pt-6'>
-							<h2 className='text-4xl font-semibold pt-14 pb-12'>Inspiration for your next trip</h2>
-							<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'>
-								{inspirationData.map(({ _id, img, location, distance, color }) => (
-									<InspirationCard
-										key={_id}
-										id={_id}
-										img={img}
-										location={location}
-										distance={distance}
-									/>
-								))}
-							</div>
-						</section>
-					</Fade>
+					<section className='pt-6'>
+						<h2 className='text-4xl font-semibold pt-14 pb-12'>Inspiration for your next trip</h2>
+						<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'>
+							{inspirationData.map(({ _id, img, location, distance, color }) => (
+								<InspirationCard key={_id} id={_id} img={img} location={location} distance={distance} />
+							))}
+						</div>
+					</section>
 					<DiscoverExperiences discoverData={discoverData} />
 				</main>
 				<Footer />
