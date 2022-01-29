@@ -57,7 +57,7 @@ const InfoCard = ({ setSelectedLocation, selectedLocation, searchResults }) => {
 			onClick={() => setSelectedLocation(_id)}
 		>
 			<div className='relative h-44 w-full md:h-56 md:w-80 lg:h-60 lg:w-80 flex-shrink-0  hover:scale-105 transition transform duration-200 ease-out cursor-pointer'>
-				<Image src={img} layout='fill' objectFit='cover' className='rounded-2xl' priority={false} />
+				<Image src={img} layout='fill' objectFit='cover' className='rounded-2xl' priority={false} unoptimized='true'/>
 			</div>
 			<div className='flex flex-col flex-grow sm:pl-5 '>
 				<div className='flex items-center justify-between'>

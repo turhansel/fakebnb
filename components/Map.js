@@ -42,7 +42,7 @@ const Map = ({ searchResults, viewport, setViewport, selectedLocation, setSelect
 									altitude={10}
 								>
 									<div className='text-dark-300'>
-										<Image src={result.img} width={150} height={100} />
+										<Image src={result.img} width={150} height={100} unoptimized='true'/>
 										<h5>{result.title}</h5>
 										<h4 className=''>£{result.price}GBP</h4>
 									</div>

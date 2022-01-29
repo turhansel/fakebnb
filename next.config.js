@@ -1,6 +1,8 @@
 // next.config.js
 module.exports = {
 	images: {
+		loader: 'cloudinary',
+		path: 'https://res.cloudinary.com/diuzwbnzu/image/upload/',
 		deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
 		domains: [
 			'res.cloudinary.com',
@@ -12,6 +14,6 @@ module.exports = {
 	},
 	env: {
 		mapbox_key: process.env.MAPBOX_KEY,
-		stripe_public_key:process.env.STRIPE_PUBLIC_KEY
+		stripe_public_key: process.env.STRIPE_PUBLIC_KEY,
 	},
 };

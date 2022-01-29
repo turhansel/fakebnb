@@ -101,10 +101,11 @@ const Header = ({ placeholder, page }) => {
 					className={!searchStatus ? 'flex relative items-center h-10 cursor-pointer my-auto' : 'hidden'}
 				>
 					<Image
-						src='https://res.cloudinary.com/diuzwbnzu/image/upload/v1639510780/Airbnb_Logo_Be%CC%81lo_qe23zq.svg'
+						src='/airbnb/Airbnb_Logo_Be%CC%81lo_qe23zq.svg'
 						layout='fill'
 						objectFit='contain'
 						objectPosition='left'
+						loading='lazy'
 					/>
 				</div>
 
@@ -163,15 +164,11 @@ const Header = ({ placeholder, page }) => {
 										height={24}
 										width={24}
 										onClick={handleLogin}
-										// onClick={signOut}
+										unoptimized='true'
 										className='rounded-full cursor-pointer'
 									/>
 								) : (
-									<UserCircleIcon
-										onClick={handleLogin}
-										// onClick={signOut}
-										className='h-6 cursor-pointer'
-									/>
+									<UserCircleIcon className='h-6 cursor-pointer' onClick={handleLogin} />
 								)}
 							</div>
 						</>

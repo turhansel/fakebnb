@@ -5,10 +5,10 @@ const Banner = () => {
 			<div className='h-screen w-screen overflow-hidden '>
 				<Image
 					alt='mountain'
-					src='https://res.cloudinary.com/diuzwbnzu/image/upload/v1639770343/mountains_drnzls.jpg'
+					src='/airbnb/mountains_drnzls.jpg'
 					layout='fill'
 					objectFit='cover'
-					quality={100}
+					// quality={100}
 					priority={true}
 				/>
 			</div>

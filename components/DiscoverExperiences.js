@@ -27,7 +27,7 @@ const DiscoverExperiences = ({ discoverData }) => {
 			<div className='relative mb-16 transition transform duration-150 hover:shadow-lg dark:hover:shadow-slate-100 rounded-3xl'>
 				<div className='relative min-w-[300px] h-[788px]'>
 					<Image
-						src='https://res.cloudinary.com/diuzwbnzu/image/upload/v1642448877/discover-host_yzcklj.jpg'
+						src='/airbnb/discover-host_yzcklj.jpg'
 						layout='fill'
 						objectFit='cover'
 						className='rounded-2xl'

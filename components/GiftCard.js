@@ -17,7 +17,7 @@ const GiftCard = () => {
 						<Image
 							className='rounded-xl'
 							alt='brand-gift'
-							src='https://res.cloudinary.com/diuzwbnzu/image/upload/v1639923980/51CmtqNRN9L_zjvl4j.jpg'
+							src='/airbnb/51CmtqNRN9L_zjvl4j.jpg'
 							width={430}
 							height={300}
 							objectFit='cover'
@@ -28,7 +28,7 @@ const GiftCard = () => {
 						<Image
 							className='rounded-xl '
 							alt='brand-gift'
-							src='https://res.cloudinary.com/diuzwbnzu/image/upload/v1639923984/Airbnb_Logo_Over_Gradient_kx38qc.png'
+							src='/airbnb/Airbnb_Logo_Over_Gradient_kx38qc.png'
 							width={430}
 							height={300}
 							objectFit='cover'

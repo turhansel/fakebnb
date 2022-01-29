@@ -104,6 +104,7 @@ const Search = ({ locations }) => {
 						<p className='flex items-center '>
 							<Image
 								src='https://a0.muscache.com/airbnb/static/packages/assets/frontend/explore-core/images/icon-uc-trophy.9ee78aa12d1a51a64b1dc566a4391ba5.gif'
+								unoptimized='true'
 								width={40}
 								height={40}
 							/>

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { useEffect } from 'react';
+import React from 'react';
 
 const InspirationCard = ({ id, img, location, distance }) => {
 	const inspirationColors = ['bg-rose-500', 'bg-pink-500', 'bg-rose-600', 'bg-pink-600'];
