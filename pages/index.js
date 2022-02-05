@@ -1,13 +1,29 @@
 import Head from 'next/head';
-import { getSession } from 'next-auth/react';
+import { getSession, useSession } from 'next-auth/react';
 import Header from '../components/Header';
 import Banner from '../components/Banner';
 import GiftCard from '../components/GiftCard';
 import InspirationCard from '../components/InspirationCard';
 import DiscoverExperiences from '../components/DiscoverExperiences';
 import Footer from '../components/Footer';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 export const Home = ({ inspirationData, discoverData }) => {
+	const { data: session } = useSession();
+	const router = useRouter();
+
+	useEffect(() => {
+		if (typeof window !== 'undefined') {
+			const isVisitor = localStorage.getItem('isVisitor');
+			if (!(session || isVisitor === 'true')) {
+				router.push({
+					pathname: '/login',
+				});
+			}
+		}
+	}, []);
+
 	return (
 		<div className='dark:bg-dark dark:text-white'>
 			<Head>
