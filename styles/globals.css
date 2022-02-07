@@ -3,66 +3,66 @@
 @tailwind utilities;
 
 @layer components {
-	.primary_button {
-		@apply bg-white text-black dark:bg-slate-800 dark:text-white py-2 px-4 shadow-md rounded-lg  font-medium active:scale-90 transition duration-150 cursor-pointer;
-	}
-	.search_button {
-		@apply px-4 py-2 border rounded-full cursor-pointer hover:shadow-lg dark:hover:shadow-md dark:hover:shadow-slate-100 transition transform duration-100 ease-out active:scale-95 active:bg-gray-100 dark:bg-dark-300 dark:text-gray-200 dark:border-gray-600;
-	}
-	.pagination_item {
-		@apply border-0 bg-gray-500 cursor-pointer rounded-full flex items-center justify-center md:w-12 md:h-12 h-10 w-10 outline-none
-		 hover:shadow-lg shadow-gray-900 mx-2 dark:hover:shadow-slate-100 dark:bg-gray-700;
-	}
-	.mapboxgl_canvas {
-		@apply w-full h-full z-10 relative;
-	}
-	.marker_inner {
-		@apply relative animate-bounce w-12  z-50;
-	}
-	.active {
-		@apply animate-none;
-	}
-	.popup_inner {
-		@apply bg-gradient-to-t from-gray-600 to-transparent bg-cover shadow-lg rounded-2xl text-white px-8 py-8;
-	}
-	.mapboxgl-popup-close-button {
-		@apply right-0 top-0 text-white leading-none  w-6 h-6 rounded-lg shadow-md shadow-black bg-red-400;
-	}
-	.mapboxgl-popup-content {
-		@apply rounded-2xl p-0 max-w-[240px] w-3/4 !importatnt;
-	}
+  .primary_button {
+    @apply cursor-pointer rounded-lg bg-white py-2 px-4 font-medium text-black shadow-md  transition duration-150 active:scale-90 dark:bg-slate-800 dark:text-white;
+  }
+  .search_button {
+    @apply transform cursor-pointer rounded-full border px-4 py-2 transition duration-100 ease-out hover:shadow-lg active:scale-95 active:bg-gray-100 dark:border-gray-600 dark:bg-dark-300 dark:text-gray-200 dark:hover:shadow-md dark:hover:shadow-slate-100;
+  }
+  .pagination_item {
+    @apply mx-2 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border-0 bg-gray-500 shadow-gray-900 outline-none
+		 hover:shadow-lg dark:bg-gray-700 dark:hover:shadow-slate-100 md:h-12 md:w-12;
+  }
+  .mapboxgl_canvas {
+    @apply relative z-10 h-full w-full;
+  }
+  .marker_inner {
+    @apply relative z-50 w-12  animate-bounce;
+  }
+  .active {
+    @apply animate-none;
+  }
+  .popup_inner {
+    @apply rounded-2xl bg-gradient-to-t from-gray-600 to-transparent bg-cover px-8 py-8 text-white shadow-lg;
+  }
+  .mapboxgl-popup-close-button {
+    @apply right-0 top-0 h-6 w-6  rounded-lg bg-red-400 leading-none text-white shadow-md shadow-black;
+  }
+  .mapboxgl-popup-content {
+    @apply !importatnt w-3/4 max-w-[240px] rounded-2xl p-0;
+  }
 }
 
 .mapboxgl-popup {
-	z-index: 1;
+  z-index: 1;
 }
 .mapboxgl-popup-content {
-	background: #e7e5e4 !important;
-	border-radius: 1rem !important;
-	padding: 0;
-	max-width: 240px;
-	width: 75%;
+  background: #e7e5e4 !important;
+  border-radius: 1rem !important;
+  padding: 0;
+  max-width: 240px;
+  width: 75%;
 }
 
 .mapboxgl-popup-content img {
-	margin: 5px 0 !important;
-	border-radius: 1rem !important;
+  margin: 5px 0 !important;
+  border-radius: 1rem !important;
 }
 
 .mapboxgl-popup-close-button {
-	overflow: hidden !important;
-	position: absolute;
-	right: 0 !important;
-	top: 0;
-	border: 0;
-	border-radius: 4px !important;
-	cursor: pointer;
-	padding: 2px 2px;
-	background-color: #c22f4f !important;
+  overflow: hidden !important;
+  position: absolute;
+  right: 0 !important;
+  top: 0;
+  border: 0;
+  border-radius: 4px !important;
+  cursor: pointer;
+  padding: 2px 2px;
+  background-color: #c22f4f !important;
 }
 
 .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
-	align-self: center;
-	border-bottom: none;
-	border-top-color: #e7e5e4 !important;
+  align-self: center;
+  border-bottom: none;
+  border-top-color: #e7e5e4 !important;
 }
