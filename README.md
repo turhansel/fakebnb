@@ -5,7 +5,7 @@
 
 ## [LIVE DEMO](https://fakebnb.vercel.app/)
 
-<img src="https://res.cloudinary.com/diuzwbnzu/image/upload/v1644256587/airbnb/fakebnb_jh8q0y.gif" alt='fakebnb' width='100%'/>
+<img src="https://github.com/turhansel/fakebnb/blob/master/fakebnb.gif?raw=true" alt='fakebnb' width='100%'/>
 
 ## Description
 
