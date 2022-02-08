@@ -18,7 +18,7 @@ function Login({ providers }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="flex min-h-screen  flex-col items-center justify-center space-y-4 bg-dark-300">
-        <div className="flex w-56 items-center justify-center md:w-full ">
+        <div className="flex items-center justify-center md:w-full ">
           <Image
             src="/airbnb/Airbnb_Logo_Be%CC%81lo_qe23zq.svg"
             width={400}
