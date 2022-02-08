@@ -1,7 +1,7 @@
 <div align="center">
       <h1> <img src="https://a0.muscache.com/airbnb/static/logotype_favicon-21cc8e6c6a2cca43f061d2dcabdf6e58.ico" width="80px"><br/>fakebnb</h1>
      </div>
-<p align="center"> <a href="https://www.turhansel.com/" target="_blank"><img alt="" src="https://img.shields.io/badge/Portfolio-EA4C89?style=normal&logo=dribbble&logoColor=white" style="vertical-align:center" /></a> <a href="https://twitter.com/imturhansel" target="_blank"><img alt="" src="https://img.shields.io/badge/Twitter-1DA1F2?style=normal&logo=twitter&logoColor=white" style="vertical-align:center" /></a> <a href="https://www.linkedin.com/in/turhansel/}" target="_blank"><img alt="" src="https://img.shields.io/badge/LinkedIn-0077B5?style=normal&logo=linkedin&logoColor=white" style="vertical-align:center" /></a> </p>
+<p align="center"> <a href="https://www.turhansel.com/" target="_blank"><img alt="" src="https://img.shields.io/badge/Portfolio-EA4C89?style=normal&logo=dribbble&logoColor=white" style="vertical-align:center" /></a> <a href="https://twitter.com/imturhansel" target="_blank"><img alt="" src="https://img.shields.io/badge/Twitter-1DA1F2?style=normal&logo=twitter&logoColor=white" style="vertical-align:center" /></a> <a href="https://www.linkedin.com/in/turhansel/" target="_blank"><img alt="" src="https://img.shields.io/badge/LinkedIn-0077B5?style=normal&logo=linkedin&logoColor=white" style="vertical-align:center" /></a> </p>
 
 ## [LIVE DEMO](https://fakebnb.vercel.app/)
 
@@ -13,13 +13,13 @@ fakebnb is an Airbnb clone for improve myself using React.js(Next.js) + tailwind
 
 ## Features
 
-- [x] Light/dark mode
-- [x] Live previews
-- [x] API Routes
-- [x] Authentication
-- [x] Search Page
-- [x] Map
-- [x] Payment
+-   [x] Light/dark mode
+-   [x] Live previews
+-   [x] API Routes
+-   [x] Authentication
+-   [x] Search Page
+-   [x] Map
+-   [x] Payment
 
 ## 💻 Tech
 
